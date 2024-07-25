@@ -1,0 +1,25 @@
+[bot]
+token = ""
+
+[webhook]
+host = "https://host"
+path = "/webhook/main_bot"
+port = 8080
+secret = ""
+
+[db]
+user = ""
+password = ""
+host = ""
+port = 5432
+database = ""
+
+[fsm]
+host = ""
+port = 6379
+db = 0
+
+[event_isolation]
+host = ""
+port = 6379
+db = 1

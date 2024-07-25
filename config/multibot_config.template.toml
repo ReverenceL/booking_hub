@@ -1,0 +1,22 @@
+[webhook]
+host = ""
+path = "/webhook/multibot/{bot_token}"
+port = 8080
+secret = ""
+
+[db]
+user = ""
+password = ""
+host = ""
+port = 5432
+database = ""
+
+[fsm]
+host = ""
+port = 6379
+db = 2
+
+[event_isolation]
+host = ""
+port = 6379
+db = 3

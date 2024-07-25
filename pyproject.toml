@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools >= 69.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hub"
+version = "1.0.0"
+requires-python = ">= 3.12"
+authors = []
+
+dependencies = [
+    "aiogram>=3",
+    "aiogram-dialog>=2.2.0a4",
+    "adaptix==3.0.0b7",
+    "sqlalchemy>=2.0",
+    "alembic>=1.13",
+    "psycopg[binary,pool]>=3.1",
+    "dishka>=1",
+    "redis>=5.0",
+    "uuid6>=2024",
+    "pytz>=2024",
+    "gunicorn>=22",
+    "babel>=2.15"
+]
+
+[tool.mypy]
+ignore_missing_imports = true
+show_error_codes = true
+warn_unused_configs = true
+no_implicit_optional = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unreachable = true
+disallow_subclassing_any = true
+local_partial_types = true
+
+[tool.ruff]
+line-length = 120
+target-version="py312"
+src = ["src"]
+include = ["src/**.py", "tests/**.py"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "D",  # Missing docstring in ...
+    "ANN",
+    "RUF001",
+    "RUF012",
+    "TID252",
+    "EM",
+    "TRY003",
+    "RET505",
+    "RET506",
+    "PLR0913",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["TID252", "PLR2004", "S101"]
+"src/hub/infrastructure/database/migrations/**" = ["INP001"]
+
+[tool.ruff.lint.isort]
+no-lines-before = ["local-folder"]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "parents"
